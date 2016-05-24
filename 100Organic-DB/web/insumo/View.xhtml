@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewInsumoTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewInsumoLabel_nomeInsumo}"/>
+                    <h:outputText value="#{insumoController.selected.nomeInsumo}" title="#{bundle.ViewInsumoTitle_nomeInsumo}"/>
+                    <h:outputText value="#{bundle.ViewInsumoLabel_quantInsumo}"/>
+                    <h:outputText value="#{insumoController.selected.quantInsumo}" title="#{bundle.ViewInsumoTitle_quantInsumo}"/>
+                    <h:outputText value="#{bundle.ViewInsumoLabel_precoInsumo}"/>
+                    <h:outputText value="#{insumoController.selected.precoInsumo}" title="#{bundle.ViewInsumoTitle_precoInsumo}"/>
+                    <h:outputText value="#{bundle.ViewInsumoLabel_id}"/>
+                    <h:outputText value="#{insumoController.selected.id}" title="#{bundle.ViewInsumoTitle_id}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{insumoController.destroyAndView}" value="#{bundle.ViewInsumoDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewInsumoEditLink}"/>
+                <br />
+                <h:commandLink action="#{insumoController.prepareCreate}" value="#{bundle.ViewInsumoCreateLink}" />
+                <br />
+                <h:commandLink action="#{insumoController.prepareList}" value="#{bundle.ViewInsumoShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewInsumoIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

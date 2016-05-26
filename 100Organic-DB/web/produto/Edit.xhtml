@@ -25,8 +25,6 @@
                     <h:inputText id="precoProduto" value="#{produtoController.selected.precoProduto}" title="#{bundle.EditProdutoTitle_precoProduto}" />
                     <h:outputLabel value="#{bundle.EditProdutoLabel_medidaProduto}" for="medidaProduto" />
                     <h:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="#{bundle.EditProdutoTitle_medidaProduto}" />
-                    <h:outputLabel value="#{bundle.EditProdutoLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{produtoController.selected.id}" title="#{bundle.EditProdutoTitle_id}" />
                 </h:panelGrid>
                 <h:commandLink action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
                 <br />

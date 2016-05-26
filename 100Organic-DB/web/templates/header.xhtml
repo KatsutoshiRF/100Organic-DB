@@ -4,35 +4,23 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-        <h:head>
-            <title>Header</title>
-        </h:head>
+    <h:head>
+        <title>Header</title>
+    </h:head>
     <h:body>
-        <b:navBar brand="100Organic" brandHref="home.xhtml">
+        <b:navBar brand="100Organic" brandHref="/100Organic-DB/faces/home.xhtml">
             <b:navbarLinks>
-<!--                <b:navLink value="Home" href="#"></b:navLink>
-                <b:navLink value="Link" href="#"></b:navLink>
-                <b:navLink value="Link" href="#"></b:navLink>-->
-<!--                <b:dropMenu value="Produtos">
-                    <b:navLink value="Criar" href="#"></b:navLink>
-                    <b:navLink value="Listar" href="#"></b:navLink>
-                    <b:navLink value="Something else here" href="#"></b:navLink>
-                    <b:navLink></b:navLink>
-                    <b:navLink header="Nav header"></b:navLink>
-                    <b:navLink value="Separated link" href="#"></b:navLink>
-                    <b:navLink value="One more separated link" href="#"></b:navLink>
-                </b:dropMenu>-->
                 <b:dropMenu value="Produto">
-                    <b:navLink value="Adicionar Produto" href="produto/Create.xhtml"></b:navLink>
-                    <b:navLink value="Listar Produtos" href="produto/List.xhtml"></b:navLink>
+                    <b:navLink value="Adicionar Produto" href="/100Organic-DB/faces/produto/Create.xhtml"></b:navLink>
+                    <b:navLink value="Listar Produtos" href="/100Organic-DB/faces/produto/List.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Insumo">
-                    <b:navLink value="Adicionar Insumo" href="insumo/Create.xhtml"></b:navLink>
-                    <b:navLink value="Listar Insumos" href="insumo/List.xhtml"></b:navLink>
+                    <b:navLink value="Adicionar Insumo" href="/100Organic-DB/faces/insumo/Create.xhtml"></b:navLink>
+                    <b:navLink value="Listar Insumos" href="/100Organic-DB/faces/insumo/List.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Gasto Extra">
-                    <b:navLink value="Adicionar Gasto" href="gastoExtra/Create.xhtml"></b:navLink>
-                    <b:navLink value="Listar Gastos" href="gastoExtra/Edit.xhtml"></b:navLink>
+                    <b:navLink value="Adicionar Gasto" href="/100Organic-DB/faces/gastoExtra/Create.xhtml"></b:navLink>
+                    <b:navLink value="Listar Gastos" href="/100Organic-DB/faces/gastoExtra/Edit.xhtml"></b:navLink>
                 </b:dropMenu>
                 <b:dropMenu value="Venda">
                     <b:navLink value="Adicionar Venda" href="#"></b:navLink>

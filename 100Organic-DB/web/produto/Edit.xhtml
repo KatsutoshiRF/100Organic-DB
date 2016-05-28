@@ -1,31 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Editar Produto</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.EditProdutoTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
+    <h:body>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditProdutoLabel_nomeProduto}" for="nomeProduto" />
-                    <h:inputText id="nomeProduto" value="#{produtoController.selected.nomeProduto}" title="#{bundle.EditProdutoTitle_nomeProduto}" />
-                    <h:outputLabel value="#{bundle.EditProdutoLabel_qualidadeProduto}" for="qualidadeProduto" />
-                    <h:inputText id="qualidadeProduto" value="#{produtoController.selected.qualidadeProduto}" title="#{bundle.EditProdutoTitle_qualidadeProduto}" />
-                    <h:outputLabel value="#{bundle.EditProdutoLabel_quantidadeProduto}" for="quantidadeProduto" />
-                    <h:inputText id="quantidadeProduto" value="#{produtoController.selected.quantidadeProduto}" title="#{bundle.EditProdutoTitle_quantidadeProduto}" />
-                    <h:outputLabel value="#{bundle.EditProdutoLabel_precoProduto}" for="precoProduto" />
-                    <h:inputText id="precoProduto" value="#{produtoController.selected.precoProduto}" title="#{bundle.EditProdutoTitle_precoProduto}" />
-                    <h:outputLabel value="#{bundle.EditProdutoLabel_medidaProduto}" for="medidaProduto" />
-                    <h:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="#{bundle.EditProdutoTitle_medidaProduto}" />
-                </h:panelGrid>
+                <b:panelGrid columns="2">
+                    <b:label text="#{bundle.EditProdutoLabel_nomeProduto}"/>
+                    <br/>
+                    <b:inputText id="nomeProduto" value="#{produtoController.selected.nomeProduto}" title="#{bundle.EditProdutoTitle_nomeProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_qualidadeProduto}"/>
+                    <br/>
+                    <b:inputText id="qualidadeProduto" value="#{produtoController.selected.qualidadeProduto}" title="#{bundle.EditProdutoTitle_qualidadeProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_quantidadeProduto}"/>
+                    <br/>
+                    <b:inputText id="quantidadeProduto" value="#{produtoController.selected.quantidadeProduto}" title="#{bundle.EditProdutoTitle_quantidadeProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_precoProduto}"/>
+                    <br/>
+                    <b:inputText id="precoProduto" value="#{produtoController.selected.precoProduto}" title="#{bundle.EditProdutoTitle_precoProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_medidaProduto}"/>
+                    <br/>
+                    <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="#{bundle.EditProdutoTitle_medidaProduto}" />
+                </b:panelGrid>
                 <h:commandLink action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
                 <br />
                 <br />
@@ -36,7 +48,6 @@
                 <br />
                 <h:link outcome="/index" value="#{bundle.EditProdutoIndexLink}" />
             </h:form>
-        </ui:define>
-    </ui:composition>
+    </h:body>
 
 </html>

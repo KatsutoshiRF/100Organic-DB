@@ -19,21 +19,27 @@
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
+            <b:panelGrid columns="2">
             <b:label text="Nome do Produto:"/>
+            <br />
             <b:inputText id="nomeProduto" value="#{produtoController.selected.nomeProduto}" title="Preço" />
             <br />
             <b:label text="Qualidade do Produto:"/>               
+            <br />
             <b:inputText id="qualidadeProduto" value="#{produtoController.selected.qualidadeProduto}" title="Qualidade" />
             <br />
             <b:label text="Quantidade do Produto:"/>              
+            <br />
             <b:inputText id="quantidadeProduto" value="#{produtoController.selected.quantidadeProduto}" title="Quantidade" />
             <br />
             <b:label text="Preço do Produto:"/>               
+            <br />
             <b:inputText id="precoProduto" value="#{produtoController.selected.precoProduto}" title="Preço" />
             <br />
             <b:label text="Medida do Produto:"/>              
+            <br />
             <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="Medida" />
-
+            </b:panelGrid>
             <br /> 
             <b:commandButton action="#{produtoController.create}" value="Adicionar" />
 

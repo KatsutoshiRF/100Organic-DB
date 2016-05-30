@@ -1,68 +1,70 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.ListGastoExtraTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:form styleClass="jsfcrud_list_form">
-                <h:panelGroup id="messagePanel" layout="block">
-                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-                </h:panelGroup>
+    <h:head>
+        <title>Lista de Gasto Extra</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListInsumoEmpty}" rendered="#{gastoExtraController.items.rowCount == 0}"/>
+
+            <h:panelGroup rendered="#{gastoExtraController.items.rowCount > 0}">
+               
                 <h:outputText escape="false" value="#{bundle.ListGastoExtraEmpty}" rendered="#{gastoExtraController.items.rowCount == 0}"/>
-                <h:panelGroup rendered="#{gastoExtraController.items.rowCount > 0}">
-                    <h:outputText value="#{gastoExtraController.pagination.pageFirstItem + 1}..#{gastoExtraController.pagination.pageLastItem + 1}/#{gastoExtraController.pagination.itemsCount}"/>&nbsp;
-                    <h:commandLink action="#{gastoExtraController.previous}" value="#{bundle.Previous} #{gastoExtraController.pagination.pageSize}" rendered="#{gastoExtraController.pagination.hasPreviousPage}"/>&nbsp;
-                    <h:commandLink action="#{gastoExtraController.next}" value="#{bundle.Next} #{gastoExtraController.pagination.pageSize}" rendered="#{gastoExtraController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{gastoExtraController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGastoExtraTitle_nomeGastoExtra}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.nomeGastoExtra}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGastoExtraTitle_quantGastoExtra}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.quantGastoExtra}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGastoExtraTitle_precoGastoExtra}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.precoGastoExtra}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGastoExtraTitle_id}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText value="&nbsp;"/>
-                            </f:facet>
-                            <h:commandLink action="#{gastoExtraController.prepareView}" value="#{bundle.ListGastoExtraViewLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{gastoExtraController.prepareEdit}" value="#{bundle.ListGastoExtraEditLink}"/>
-                            <h:outputText value=" "/>
-                            <h:commandLink action="#{gastoExtraController.destroy}" value="#{bundle.ListGastoExtraDestroyLink}"/>
-                        </h:column>
-                    </h:dataTable>
-                </h:panelGroup>
-                <br />
-                <h:commandLink action="#{gastoExtraController.prepareCreate}" value="#{bundle.ListGastoExtraCreateLink}"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.ListGastoExtraIndexLink}"/>
-            </h:form>
-        </ui:define>
-    </ui:composition>
+                <b:dataTable value="#{gastoExtraController.items}" var="item" styleClass="table table-striped">
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomeGastoExtra}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Quantidade"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantGastoExtra}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Preço"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precoGastoExtra}"/>    
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </b:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{gastoExtraController.prepareView}"/>
+                         <!--value="Detalhes"-->
+                        <h:outputText value=" "/>
+                        <b:commandButton action="#{gastoExtraController.prepareEdit}" value="Editar"/>
+                        <h:outputText value=" "/>
+                        <b:commandButton action="#{gastoExtraController.destroy}" value="Excluir"/>
+                    </h:column>
 
+                </b:dataTable>
+            </h:panelGroup>
+            <b:commandButton action="#{gastoExtraController.prepareCreate}" value="Cadastrar Gasto Extra"/>
+<!--            <br />
+            <br />
+            <h:link outcome="/index" value="#{bundle.ListGastoExtraIndexLink}"/>-->
+        </h:form>
+    </h:body>
 </html>

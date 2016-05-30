@@ -66,9 +66,9 @@
                         <h:commandLink action="#{produtoController.prepareView}"/>
                          <!--value="Detalhes"-->
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{produtoController.prepareEdit}" value="Editar"/>
+                        <b:commandButton action="#{produtoController.prepareEdit}" value="Editar"/>
                         <h:outputText value=" "/>
-                        <h:commandLink action="#{produtoController.destroy}" value="Excluir"/>
+                        <b:commandButton action="#{produtoController.destroy}" value="Excluir"/>
                     </h:column>
 
                 </b:dataTable>

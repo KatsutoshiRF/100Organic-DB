@@ -1,40 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Editar Gasto Extra</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
 
-    <ui:composition template="/template.xhtml">
-        <ui:define name="title">
-            <h:outputText value="#{bundle.EditGastoExtraTitle}"></h:outputText>
-        </ui:define>
-        <ui:define name="body">
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
-            <h:form>
-                <h:panelGrid columns="2">
-                    <h:outputLabel value="#{bundle.EditGastoExtraLabel_nomeGastoExtra}" for="nomeGastoExtra" />
-                    <h:inputText id="nomeGastoExtra" value="#{gastoExtraController.selected.nomeGastoExtra}" title="#{bundle.EditGastoExtraTitle_nomeGastoExtra}" />
-                    <h:outputLabel value="#{bundle.EditGastoExtraLabel_quantGastoExtra}" for="quantGastoExtra" />
-                    <h:inputText id="quantGastoExtra" value="#{gastoExtraController.selected.quantGastoExtra}" title="#{bundle.EditGastoExtraTitle_quantGastoExtra}" />
-                    <h:outputLabel value="#{bundle.EditGastoExtraLabel_precoGastoExtra}" for="precoGastoExtra" />
-                    <h:inputText id="precoGastoExtra" value="#{gastoExtraController.selected.precoGastoExtra}" title="#{bundle.EditGastoExtraTitle_precoGastoExtra}" />
-                    <h:outputLabel value="#{bundle.EditGastoExtraLabel_id}" for="id" />
-                    <h:inputText id="id" value="#{gastoExtraController.selected.id}" title="#{bundle.EditGastoExtraTitle_id}" />
-                </h:panelGrid>
-                <h:commandLink action="#{gastoExtraController.update}" value="#{bundle.EditGastoExtraSaveLink}"/>
-                <br />
-                <br />
-                <h:link outcome="View" value="#{bundle.EditGastoExtraViewLink}"/>
-                <br />
-                <h:commandLink action="#{gastoExtraController.prepareList}" value="#{bundle.EditGastoExtraShowAllLink}" immediate="true"/>
-                <br />
-                <br />
-                <h:link outcome="/index" value="#{bundle.EditGastoExtraIndexLink}" />
-            </h:form>
-        </ui:define>
-    </ui:composition>
+    <h:body>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form>
+            <b:panelGrid columns="2">
+                <b:label text="#{bundle.EditGastoExtraLabel_nomeGastoExtra}"/>
+                <br/>
+                <b:inputText id="nomeGastoExtra" value="#{gastoExtraController.selected.nomeGastoExtra}" title="#{bundle.EditGastoExtraLabel_nomeGastoExtra}" />
+                <br/>
+                <b:label text="#{bundle.EditGastoExtraLabel_quantGastoExtra}"/>
+                <br/>
+                <b:inputText id="quantGastoExtra" value="#{gastoExtraController.selected.quantGastoExtra}" title="#{bundle.EditGastoExtraTitle_quantGastoExtra}" />
+                <br/>
+                <b:label text="#{bundle.EditGastoExtraLabel_precoGastoExtra}"/>
+                <br/>
+                <b:inputText id="precoGastoExtra" value="#{gGastoExtraController.selected.precoGastoExtra}" title="#{bundle.EditGastoExtraTitle_precoGastoExtra}" />
+            </b:panelGrid>
+            <b:commandButton action="#{gastoExtraController.update}" value="#{bundle.EditGastoExtraSaveLink}"/>
+            <br />
+            <h:link outcome="View" value="#{bundle.EditGastoExtraViewLink}"/>
+            <br />
+            <b:commandButton action="#{gastoExtraController.prepareList}" value="#{bundle.EditGastoExtraShowAllLink}" immediate="true"/>
+            <br />
+            <h:link outcome="/index" value="#{bundle.EditGastoExtraIndexLink}" />
+        </h:form>
+    </h:body>
 
 </html>

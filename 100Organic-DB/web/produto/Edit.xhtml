@@ -38,13 +38,11 @@
                     <br/>
                     <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="#{bundle.EditProdutoTitle_medidaProduto}" />
                 </b:panelGrid>
-                <h:commandLink action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
-                <br />
+                <h:commandButton action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
                 <br />
                 <h:link outcome="View" value="#{bundle.EditProdutoViewLink}"/>
                 <br />
-                <h:commandLink action="#{produtoController.prepareList}" value="#{bundle.EditProdutoShowAllLink}" immediate="true"/>
-                <br />
+                <h:commandButton action="#{produtoController.prepareList}" value="#{bundle.EditProdutoShowAllLink}" immediate="true"/>
                 <br />
                 <h:link outcome="/index" value="#{bundle.EditProdutoIndexLink}" />
             </h:form>

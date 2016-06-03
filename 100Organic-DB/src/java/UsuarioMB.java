@@ -1,4 +1,5 @@
 
+import model.Usuario;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +19,10 @@ public class UsuarioMB implements Serializable {
 
     public UsuarioMB() {
         listaUsuarios = new ArrayList<>();
-        listaUsuarios.add(new Usuario("admin", "admin"));
-        listaUsuarios.add(new Usuario("user1", "123"));
-        listaUsuarios.add(new Usuario("user2", "123"));
-        listaUsuarios.add(new Usuario("user3", "123"));
+//        listaUsuarios.add(new Usuario("admin", "admin"));
+//        listaUsuarios.add(new Usuario("user1", "123"));
+//        listaUsuarios.add(new Usuario("user2", "123"));
+//        listaUsuarios.add(new Usuario("user3", "123"));
 
         usuario = new Usuario();
         logado = false;

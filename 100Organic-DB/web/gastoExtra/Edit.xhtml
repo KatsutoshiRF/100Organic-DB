@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Editar Gasto Extra</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
+
+    <h:body>
+        <h:panelGroup id="messagePanel" layout="block">
+            <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+        </h:panelGroup>
+        <h:form>
+            <b:panelGrid columns="2">
+                <b:label text="#{bundle.EditGastoExtraLabel_nomeGastoExtra}"/>
+                <br/>
+                <b:inputText id="nomeGastoExtra" value="#{gastoExtraController.selected.nomeGastoExtra}" title="#{bundle.EditGastoExtraLabel_nomeGastoExtra}" />
+                <br/>
+                <b:label text="#{bundle.EditGastoExtraLabel_quantGastoExtra}"/>
+                <br/>
+                <b:inputText id="quantGastoExtra" value="#{gastoExtraController.selected.quantGastoExtra}" title="#{bundle.EditGastoExtraTitle_quantGastoExtra}" />
+                <br/>
+                <b:label text="#{bundle.EditGastoExtraLabel_precoGastoExtra}"/>
+                <br/>
+                <b:inputText id="precoGastoExtra" value="#{gGastoExtraController.selected.precoGastoExtra}" title="#{bundle.EditGastoExtraTitle_precoGastoExtra}" />
+            </b:panelGrid>
+            <b:commandButton action="#{gastoExtraController.update}" value="#{bundle.EditGastoExtraSaveLink}"/>
+            <br />
+            <h:link outcome="View" value="#{bundle.EditGastoExtraViewLink}"/>
+            <br />
+            <b:commandButton action="#{gastoExtraController.prepareList}" value="#{bundle.EditGastoExtraShowAllLink}" immediate="true"/>
+
+        </h:form>
+    </h:body>
+
+</html>

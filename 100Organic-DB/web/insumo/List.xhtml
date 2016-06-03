@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Lista de Insumo</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListInsumoEmpty}" rendered="#{insumoController.items.rowCount == 0}"/>
+
+            <h:panelGroup rendered="#{insumoController.items.rowCount > 0}">
+               
+                <h:outputText escape="false" value="#{bundle.ListInsumoEmpty}" rendered="#{insumoController.items.rowCount == 0}"/>
+                <b:dataTable value="#{insumoController.items}" var="item" styleClass="table table-striped">
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomeInsumo}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Quantidade"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantInsumo}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Preço"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precoInsumo}"/>    
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </b:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{insumoController.prepareView}"/>
+                         <!--value="Detalhes"-->
+                        <h:outputText value=" "/>
+                        <b:commandButton action="#{insumoController.prepareEdit}" value="Editar"/>
+                        <h:outputText value=" "/>
+                        <b:commandButton action="#{insumoController.destroy}" value="Excluir"/>
+                    </h:column>
+
+                </b:dataTable>
+            </h:panelGroup>
+            <b:commandButton action="#{insumoController.prepareCreate}" value="Cadastrar Insumo"/>
+<!--            <br />
+            <br />
+            <h:link outcome="/index" value="#{bundle.ListInsumoIndexLink}"/>-->
+        </h:form>
+    </h:body>
+</html>

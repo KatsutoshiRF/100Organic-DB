@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+        <title>Lista de Produtos</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:outputText escape="false" value="#{bundle.ListInsumoEmpty}" rendered="#{produtoController.items.rowCount == 0}"/>
+
+            <h:panelGroup rendered="#{produtoController.items.rowCount > 0}">
+                <h:outputText value="#{produtoController.pagination.pageFirstItem + 1}..#{produtoController.pagination.pageLastItem + 1}/#{produtoController.pagination.itemsCount}"/>&nbsp;
+                <h:commandLink action="#{produtoController.previous}" value="#{bundle.Previous} #{produtoController.pagination.pageSize}" rendered="#{produtoController.pagination.hasPreviousPage}"/>&nbsp;
+                <h:commandLink action="#{produtoController.next}" value="#{bundle.Next} #{produtoController.pagination.pageSize}" rendered="#{produtoController.pagination.hasNextPage}"/>&nbsp;
+                <h:outputText escape="false" value="#{bundle.ListProdutoEmpty}" rendered="#{produtoController.items.rowCount == 0}"/>
+                <b:dataTable value="#{produtoController.items}" var="item" styleClass="table table-striped">
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Nome"/>
+                        </f:facet>
+                        <h:outputText value="#{item.nomeProduto}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Qualidade"/>
+                        </f:facet>
+                        <h:outputText value="#{item.qualidadeProduto}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Quantidade"/>
+                        </f:facet>
+                        <h:outputText value="#{item.quantidadeProduto}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Preço"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precoProduto}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Medida"/>
+                        </f:facet>
+                        <h:outputText value="#{item.medidaProduto}"/>
+                    </b:column>
+                    <b:column>
+                        <f:facet name="header">
+                            <b:label text="Id"/>
+                        </f:facet>
+                        <h:outputText value="#{item.id}"/>
+                    </b:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="&nbsp;"/>
+                        </f:facet>
+                        <h:commandLink action="#{produtoController.prepareView}"/>
+                        <!--value="Detalhes"-->
+                        <h:outputText value=" "/>
+                        <b:commandButton action="#{produtoController.prepareEdit}" value="Editar"/>
+                        <h:outputText value=" "/>
+                        <b:commandButton action="#{produtoController.destroy}" value="Excluir"/>
+                    </h:column>
+
+                </b:dataTable>
+            </h:panelGroup>
+            <b:commandButton action="#{produtoController.prepareCreate}" value="Cadastrar Produto"/>
+            <!--            <br />
+                        <br />
+                        <h:link outcome="/index" value="#{bundle.ListProdutoIndexLink}"/>-->
+        </h:form>
+    </h:body>
+</html>

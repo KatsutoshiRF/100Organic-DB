@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Editar Produto</title>
+        <ui:include src="../templates/header.xhtml"/>
+        <style>
+        </style>
+    </h:head>
+
+    <h:body>
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <b:panelGrid columns="2">
+                    <b:label text="#{bundle.EditProdutoLabel_nomeProduto}"/>
+                    <br/>
+                    <b:inputText id="nomeProduto" value="#{produtoController.selected.nomeProduto}" title="#{bundle.EditProdutoTitle_nomeProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_qualidadeProduto}"/>
+                    <br/>
+                    <b:inputText id="qualidadeProduto" value="#{produtoController.selected.qualidadeProduto}" title="#{bundle.EditProdutoTitle_qualidadeProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_quantidadeProduto}"/>
+                    <br/>
+                    <b:inputText id="quantidadeProduto" value="#{produtoController.selected.quantidadeProduto}" title="#{bundle.EditProdutoTitle_quantidadeProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_precoProduto}"/>
+                    <br/>
+                    <b:inputText id="precoProduto" value="#{produtoController.selected.precoProduto}" title="#{bundle.EditProdutoTitle_precoProduto}" />
+                    <br/>
+                    <b:label text="#{bundle.EditProdutoLabel_medidaProduto}"/>
+                    <br/>
+                    <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="#{bundle.EditProdutoTitle_medidaProduto}" />
+                </b:panelGrid>
+                <h:commandButton action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProdutoViewLink}"/>
+                <br />
+                <h:commandButton action="#{produtoController.prepareList}" value="#{bundle.EditProdutoShowAllLink}" immediate="true"/>
+              
+            </h:form>
+    </h:body>
+
+</html>

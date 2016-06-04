@@ -22,7 +22,7 @@
             <h:panelGroup rendered="#{gastoExtraController.items.rowCount > 0}">
                
                 <h:outputText escape="false" value="#{bundle.ListGastoExtraEmpty}" rendered="#{gastoExtraController.items.rowCount == 0}"/>
-                <b:dataTable value="#{gastoExtraController.items}" var="item" styleClass="table table-striped">
+                <b:dataTable value="#{gastoExtraController.items}" responsive="true" var="item" styleClass="table table-striped">
                     <b:column>
                         <f:facet name="header">
                             <b:label text="Nome"/>

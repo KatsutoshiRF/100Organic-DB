@@ -17,7 +17,7 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <title>Login</title>
-        <h:outputStylesheet name="css/jsfcrud.css"/>
+        
     </h:head>
     <h:body>
         <div class="container">
@@ -27,11 +27,9 @@ and open the template in the editor.
 
                 <b:label  text="Usuario: "/>
                 <b:inputText value="#{usuarioMB.usuario.nome}" id="idUsuario" style="width:200px" maxlength="30"/>
-
                 <b:label text="Senha: "/>
                 <b:inputSecret value="#{usuarioMB.usuario.senha}" id="idSenha" style="width:200px" maxlength="20"/>
-
-                <b:commandButton class="btn btn-lg btn-primary btn-block" value="Login" style="width:200px" action="#{usuarioMB.verificaLogin()}" />
+                <h:commandButton action="#{usuarioMB.verificaLogin()}" class="btn btn-lg btn-primary btn-block" value="Login" style="width:200px"/>
 
                 <h:messages id="idMensagem" showDetail="true" errorStyle="color:red"/>
 
@@ -43,7 +41,6 @@ and open the template in the editor.
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="resources/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
         <br />
-        <h:link outcome="/usuario/List" value="Show All Usuario Items"/>
     </h:body>
 
 </html>

@@ -22,7 +22,7 @@
             <h:panelGroup rendered="#{insumoController.items.rowCount > 0}">
                
                 <h:outputText escape="false" value="#{bundle.ListInsumoEmpty}" rendered="#{insumoController.items.rowCount == 0}"/>
-                <b:dataTable value="#{insumoController.items}" var="item" styleClass="table table-striped">
+                <b:dataTable value="#{insumoController.items}" responsive="true" var="item" styleClass="table table-striped">
                     <b:column>
                         <f:facet name="header">
                             <b:label text="Nome"/>

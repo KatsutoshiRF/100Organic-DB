@@ -13,54 +13,53 @@
         </style>
     </h:head>
     <h:body>
-        <h:form>
+        <h:form styleClass="jsfcrud_list_form">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:outputText escape="false" value="#{bundle.ListInsumoEmpty}" rendered="#{produtoController.items.rowCount == 0}"/>
-
             <h:panelGroup rendered="#{produtoController.items.rowCount > 0}">
                 <h:outputText value="#{produtoController.pagination.pageFirstItem + 1}..#{produtoController.pagination.pageLastItem + 1}/#{produtoController.pagination.itemsCount}"/>&nbsp;
                 <h:commandLink action="#{produtoController.previous}" value="#{bundle.Previous} #{produtoController.pagination.pageSize}" rendered="#{produtoController.pagination.hasPreviousPage}"/>&nbsp;
                 <h:commandLink action="#{produtoController.next}" value="#{bundle.Next} #{produtoController.pagination.pageSize}" rendered="#{produtoController.pagination.hasNextPage}"/>&nbsp;
-                <h:outputText escape="false" value="#{bundle.ListProdutoEmpty}" rendered="#{produtoController.items.rowCount == 0}"/>
-                <b:dataTable value="#{produtoController.items}" var="item" styleClass="table table-striped">
-                    <b:column>
+<!--                <h:outputText escape="false" value="#{bundle.ListProdutoEmpty}" rendered="#{produtoController.items.rowCount == 0}"/>-->
+                <b:dataTable value="#{produtoController.items}" var="item" responsive="true" styleClass="table table-striped">
+                    <h:column>
                         <f:facet name="header">
                             <b:label text="Nome"/>
                         </f:facet>
                         <h:outputText value="#{item.nomeProduto}"/>
-                    </b:column>
-                    <b:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">
                             <b:label text="Qualidade"/>
                         </f:facet>
                         <h:outputText value="#{item.qualidadeProduto}"/>
-                    </b:column>
-                    <b:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">
                             <b:label text="Quantidade"/>
                         </f:facet>
                         <h:outputText value="#{item.quantidadeProduto}"/>
-                    </b:column>
-                    <b:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">
                             <b:label text="Preço"/>
                         </f:facet>
                         <h:outputText value="#{item.precoProduto}"/>
-                    </b:column>
-                    <b:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">
                             <b:label text="Medida"/>
                         </f:facet>
                         <h:outputText value="#{item.medidaProduto}"/>
-                    </b:column>
-                    <b:column>
+                    </h:column>
+                    <h:column>
                         <f:facet name="header">
                             <b:label text="Id"/>
                         </f:facet>
                         <h:outputText value="#{item.id}"/>
-                    </b:column>
+                    </h:column>
                     <h:column>
                         <f:facet name="header">
                             <h:outputText value="&nbsp;"/>

@@ -14,6 +14,7 @@
     </h:head>
     <h:body>
         <h:form>
+            <h2>Lista de Gastos Extras</h2>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
@@ -54,9 +55,9 @@
                         <h:commandLink action="#{gastoExtraController.prepareView}"/>
                          <!--value="Detalhes"-->
                         <h:outputText value=" "/>
-                        <b:commandButton action="#{gastoExtraController.prepareEdit}" value="Editar"/>
+                        <b:commandButton action="#{gastoExtraController.prepareEdit}" value="Editar" icon="pencil"/>
                         <h:outputText value=" "/>
-                        <b:commandButton action="#{gastoExtraController.destroy}" value="Excluir"/>
+                        <b:commandButton action="#{gastoExtraController.destroy}" value="Excluir" icon="trash"/>
                     </h:column>
 
                 </b:dataTable>

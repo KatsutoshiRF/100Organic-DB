@@ -16,9 +16,6 @@
         <h:form>
 
             <h2>Cadastro de Produto</h2>
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <b:panelGrid columns="2">
                 <b:label text="Nome do Produto:"/>
                 <br />
@@ -38,10 +35,10 @@
                 <br />
                 <b:label text="Medida do Produto:"/>              
                 <br />
-                <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="Medida" />
+                <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="Medida"/>
             </b:panelGrid>
             <br /> 
-            <b:commandButton action="#{produtoController.create}" value="Adicionar" />
+            <b:commandButton action="#{produtoController.create}" value="Adicionar" icon="save" look="primary"/>
 
         </h:form>
         <!--</ui:composition>-->

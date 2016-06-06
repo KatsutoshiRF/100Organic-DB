@@ -13,36 +13,29 @@
     </h:head>
 
     <h:body>
-            <h:panelGroup id="messagePanel" layout="block">
-                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
-            </h:panelGroup>
             <h:form>
                 <b:panelGrid columns="2">
-                    <b:label text="#{bundle.EditProdutoLabel_nomeProduto}"/>
+                    <b:label text="Nome do Produto"/>
                     <br/>
                     <b:inputText id="nomeProduto" value="#{produtoController.selected.nomeProduto}" title="#{bundle.EditProdutoTitle_nomeProduto}" />
                     <br/>
-                    <b:label text="#{bundle.EditProdutoLabel_qualidadeProduto}"/>
+                    <b:label text="Qualidade do Produto"/>
                     <br/>
                     <b:inputText id="qualidadeProduto" value="#{produtoController.selected.qualidadeProduto}" title="#{bundle.EditProdutoTitle_qualidadeProduto}" />
                     <br/>
-                    <b:label text="#{bundle.EditProdutoLabel_quantidadeProduto}"/>
+                    <b:label text="Quantidade do Produto"/>
                     <br/>
                     <b:inputText id="quantidadeProduto" value="#{produtoController.selected.quantidadeProduto}" title="#{bundle.EditProdutoTitle_quantidadeProduto}" />
                     <br/>
-                    <b:label text="#{bundle.EditProdutoLabel_precoProduto}"/>
+                    <b:label text="Preço do Produto}"/>
                     <br/>
                     <b:inputText id="precoProduto" value="#{produtoController.selected.precoProduto}" title="#{bundle.EditProdutoTitle_precoProduto}" />
                     <br/>
-                    <b:label text="#{bundle.EditProdutoLabel_medidaProduto}"/>
+                    <b:label text="Medida do Produto"/>
                     <br/>
                     <b:inputText id="medidaProduto" value="#{produtoController.selected.medidaProduto}" title="#{bundle.EditProdutoTitle_medidaProduto}" />
                 </b:panelGrid>
-                <h:commandButton action="#{produtoController.update}" value="#{bundle.EditProdutoSaveLink}"/>
-                <br />
-                <h:link outcome="View" value="#{bundle.EditProdutoViewLink}"/>
-                <br />
-                <h:commandButton action="#{produtoController.prepareList}" value="#{bundle.EditProdutoShowAllLink}" immediate="true"/>
+                <b:commandButton action="#{produtoController.update}" value="Salvar Alterações"  icon="floppy-disk" look="primary" />
               
             </h:form>
     </h:body>

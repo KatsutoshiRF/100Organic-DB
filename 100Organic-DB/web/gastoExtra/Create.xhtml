@@ -8,8 +8,6 @@
     <h:head>
         <title>Adicionar Gasto Extra</title>
         <ui:include src="../templates/header.xhtml"/>
-        <style>
-        </style>
     </h:head>
     <h:body>
 
@@ -33,7 +31,7 @@
                 <b:inputText id="precoGastoExtra" value="#{gastoExtraController.selected.precoGastoExtra}" title="Preço" />
             </b:panelGrid>
             <br />
-            <b:commandButton action="#{gastoExtraController.create}" value="Adicionar" />
+            <b:commandButton action="#{gastoExtraController.create}" value="Adicionar" icon="save" look="primary" />
         </h:form>
         <!--</ui:composition>-->
     </h:body>

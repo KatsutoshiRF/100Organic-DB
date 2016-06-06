@@ -25,13 +25,21 @@ and open the template in the editor.
         <div class="container" align="center">
             <h:form class="form-signin">
                 <h2 class="form-signin-heading">Faça seu Login</h2>
-                <div >
+                <div style="padding-right:280px;padding-left: 280px">
 
-                    <b:label  text="Usuario: "/>
-                    <b:inputText value="#{usuarioMB.usuario.nome}" id="idUsuario"/>
+                    <b:label  text="Usuário: "/>
+                    <b:inputText value="#{usuarioMB.usuario.nome}" id="idUsuario">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="user" />
+                        </f:facet>
+                    </b:inputText>
                     <br/>
                     <b:label text="Senha: "/>
-                    <b:inputSecret value="#{usuarioMB.usuario.senha}" id="idSenha"/>
+                    <b:inputSecret value="#{usuarioMB.usuario.senha}" id="idSenha">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="key" />
+                        </f:facet>
+                    </b:inputSecret>
                     <br/>
                     <b:commandButton class="btn btn-lg btn-primary btn-block" value="Login" action="#{usuarioMB.verificaLogin()}" />
 

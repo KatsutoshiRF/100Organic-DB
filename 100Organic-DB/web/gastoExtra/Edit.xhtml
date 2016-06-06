@@ -17,25 +17,22 @@
             <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
         </h:panelGroup>
         <h:form>
+            <h2>Editar Gasto Extra</h2>
             <b:panelGrid columns="2">
-                <b:label text="#{bundle.EditGastoExtraLabel_nomeGastoExtra}"/>
+                <b:label text="Nome do Gasto Extra"/>
                 <br/>
                 <b:inputText id="nomeGastoExtra" value="#{gastoExtraController.selected.nomeGastoExtra}" title="#{bundle.EditGastoExtraLabel_nomeGastoExtra}" />
                 <br/>
-                <b:label text="#{bundle.EditGastoExtraLabel_quantGastoExtra}"/>
+                <b:label text="Quantidade do Gasto Extra"/>
                 <br/>
                 <b:inputText id="quantGastoExtra" value="#{gastoExtraController.selected.quantGastoExtra}" title="#{bundle.EditGastoExtraTitle_quantGastoExtra}" />
                 <br/>
-                <b:label text="#{bundle.EditGastoExtraLabel_precoGastoExtra}"/>
+                <b:label text="Preço do Gasto Extra"/>
                 <br/>
                 <b:inputText id="precoGastoExtra" value="#{gGastoExtraController.selected.precoGastoExtra}" title="#{bundle.EditGastoExtraTitle_precoGastoExtra}" />
             </b:panelGrid>
-            <b:commandButton action="#{gastoExtraController.update}" value="#{bundle.EditGastoExtraSaveLink}"/>
-            <br />
-            <h:link outcome="View" value="#{bundle.EditGastoExtraViewLink}"/>
-            <br />
-            <b:commandButton action="#{gastoExtraController.prepareList}" value="#{bundle.EditGastoExtraShowAllLink}" immediate="true"/>
-
+            <b:commandButton action="#{gastoExtraController.update}"  value="Salvar Alterações"  icon="floppy-disk" look="primary"/>
+            
         </h:form>
     </h:body>
 

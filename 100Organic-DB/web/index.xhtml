@@ -20,27 +20,35 @@ and open the template in the editor.
         
     </h:head>
     <h:body>
-        <div class="container">
-            <h:form class="form-signin">    
+    <div class="container" align="center">
+            <h:form class="form-signin">
                 <h2 class="form-signin-heading">Faça seu Login</h2>
+                <div style="padding-right:280px;padding-left: 280px">
 
+                    <b:label  text="Usuário: "/>
+                    <b:inputText value="#{usuarioMB.usuario.nome}" id="idUsuario">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="user" />
+                        </f:facet>
+                    </b:inputText>
+                    <br/>
+                    <b:label text="Senha: "/>
+                    <b:inputSecret value="#{usuarioMB.usuario.senha}" id="idSenha">
+                        <f:facet name="prepend">
+                            <b:iconAwesome name="key" />
+                        </f:facet>
+                    </b:inputSecret>
+                    <br/>
+                    <b:commandButton class="btn btn-lg btn-primary btn-block" value="Login" action="#{usuarioMB.verificaLogin()}" />
 
-                <b:label  text="Usuario: "/>
-                <b:inputText value="#{usuarioMB.usuario.nome}" id="idUsuario" style="width:200px" maxlength="30"/>
-                <b:label text="Senha: "/>
-                <b:inputSecret value="#{usuarioMB.usuario.senha}" id="idSenha" style="width:200px" maxlength="20"/>
-                <h:commandButton action="#{usuarioMB.verificaLogin()}" class="btn btn-lg btn-primary btn-block" value="Login" style="width:200px"/>
-
-                <h:messages id="idMensagem" showDetail="true" errorStyle="color:red"/>
-
+                    <h:messages id="idMensagem" showDetail="true" errorStyle="color:red"/>
+                </div>
             </h:form>
-        </div>            
-
+        </div>       
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="resources/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
-        <br />
     </h:body>
 
 </html>

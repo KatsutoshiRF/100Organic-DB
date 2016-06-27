@@ -1,6 +1,11 @@
 
 import model.Usuario;
 import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.context.SessionScoped;
@@ -19,7 +24,7 @@ public class UsuarioMB implements Serializable {
 
     public UsuarioMB() {
         listaUsuarios = new ArrayList<>();
-//        listaUsuarios.add(new Usuario("admin", "admin"));
+        listaUsuarios.add(usuario);
 //        listaUsuarios.add(new Usuario("user1", "123"));
 //        listaUsuarios.add(new Usuario("user2", "123"));
 //        listaUsuarios.add(new Usuario("user3", "123"));
@@ -39,7 +44,7 @@ public class UsuarioMB implements Serializable {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
-
+    
     public String verificaLogin() {
         if (listaUsuarios.contains(usuario)) {
             logado = true;
@@ -49,7 +54,7 @@ public class UsuarioMB implements Serializable {
             FacesMessage mensagem = new FacesMessage(FacesMessage.SEVERITY_ERROR,
                     "Login inválido!", "Usuário ou senha estão errados!");
             contexto.addMessage("idMensagem", mensagem);
-            return ("index?faces-redirect=true");
+            return ("home?faces-redirect=true");
         }
 
     }

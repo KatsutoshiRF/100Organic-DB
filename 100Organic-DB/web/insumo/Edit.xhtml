@@ -12,29 +12,25 @@
         </style>
     </h:head>
 
-    <h:body>
+    <h:body style="background-image: url(../templates/farm.jpg); background-size: 100%">
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
             </h:panelGroup>
             <h:form>
                 <b:panelGrid columns="2">
-                    <b:label text="#{bundle.EditInsumoLabel_nomeInsumo}"/>
+                    <b:label text="Nome do Insumo"/>
                     <br/>
                     <b:inputText id="nomeInsumo" value="#{insumoController.selected.nomeInsumo}" title="#{bundle.EditInsumoLabel_nomeInsumo}" />
                     <br/>
-                    <b:label text="#{bundle.EditInsumoLabel_quantInsumo}"/>
+                    <b:label text="Quantidade do Insumo"/>
                     <br/>
                     <b:inputText id="quantProduto" value="#{insumoController.selected.quantInsumo}" title="#{bundle.EditInsumoTitle_quantInsumo}" />
                     <br/>
-                    <b:label text="#{bundle.EditInsumoLabel_precoInsumo}"/>
+                    <b:label text="Preço do Insumo"/>
                     <br/>
                     <b:inputText id="precoInsumo" value="#{insumoController.selected.precoInsumo}" title="#{bundle.EditInsumoTitle_precoInsumo}" />
                     </b:panelGrid>
-                <b:commandButton action="#{insumoController.update}" value="#{bundle.EditInsumoSaveLink}"/>
-                <br />
-                <h:link outcome="View" value="#{bundle.EditInsumoViewLink}"/>
-                <br />
-                <b:commandButton action="#{insumoController.prepareList}"  value="Salvar Alterações"  icon="floppy-disk" look="primary" />
+               <b:commandButton action="#{insumoController.update}"  value="Salvar Alterações"  icon="floppy-disk" look="primary"/>
 
             </h:form>
     </h:body>

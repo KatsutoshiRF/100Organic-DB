@@ -11,10 +11,10 @@
         <style>
         </style>
     </h:head>
-    <h:body>
+    <h:body style="background-image: url(../templates/farm.jpg); background-size: 100%">
 
         <h:form>
-            <div style="padding-right:280px;padding-left: 280px">
+            
             <h2>Cadastro de Insumo</h2>
             <h:panelGroup id="messagePanel" layout="block">
                 <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
@@ -34,7 +34,7 @@
             </b:panelGrid>
             <br />
             <b:commandButton action="#{insumoController.create}" value="Adicionar" icon="save" look="primary" />
-            </div>
+       
         </h:form>
         <!--</ui:composition>-->
     </h:body>

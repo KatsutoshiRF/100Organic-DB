@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Katsutoshi
+ * @author marcelosiedler
  */
 public class Conexao {
     private static final String banco = 

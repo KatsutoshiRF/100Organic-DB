@@ -30,7 +30,7 @@ public class Conexao {
      * SGBD a ser usado na conexão
      */
     private static final String usuario = "postgres";
-    private static final String senha = "admin";  
+    private static final String senha = "pnacional1";  
     /**
      * O atributo con representa um objeto que 
      * contém a conexão com o banco de dados em si

@@ -48,6 +48,11 @@ public class ClienteOrganic {
         resource = resource.path("Produto/get");
         return resource.request(MediaType.APPLICATION_JSON).get(responseType);
     }
+        public <T> T buscarProduto(GenericType<T> responseType) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("Produto/get/{nomeproduto}");
+        return resource.request(MediaType.APPLICATION_JSON).get(responseType);
+    }
 
 //    public String getGastoExtras() throws ClientErrorException {
 //        WebTarget resource = webTarget;

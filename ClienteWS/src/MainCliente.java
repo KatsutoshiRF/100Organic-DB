@@ -1,5 +1,7 @@
 
 import java.util.List;
+import java.util.Scanner;
+import javax.swing.*;
 import javax.ws.rs.core.GenericType;
 import model.GastoExtra;
 import model.Insumo;
@@ -22,26 +24,29 @@ public class MainCliente {
      */
     public static void main(String[] args) {
         ClienteOrganic cliente = new ClienteOrganic();
-
+        String aux = "";
         List<Produto> listaProdutos = cliente.getProdutos(
                 new GenericType<List<Produto>>() {
         });
+        
         for (Produto p : listaProdutos) {
-            System.out.println("Produto: "+p.getNomeProduto() + " " + p.getQualidadeProduto() + " " + p.getQuantidadeProduto() + " " + p.getPrecoProduto() + " " + p.getMedidaProduto());
+            aux += "\nProduto: " + p.getNomeProduto() + " " + p.getQualidadeProduto() + " " + p.getQuantidadeProduto() + " " + p.getPrecoProduto() + " " + p.getMedidaProduto();
+            System.out.println("Produto: " + p.getNomeProduto() + " " + p.getQualidadeProduto() + " " + p.getQuantidadeProduto() + " " + p.getPrecoProduto() + " " + p.getMedidaProduto());
         }
-            System.out.println("\n");
+        JOptionPane.showMessageDialog(null, aux);
+        System.out.println("\n");
         List<Insumo> listaInsumos = cliente.getInsumos(
                 new GenericType<List<Insumo>>() {
         });
         for (Insumo i : listaInsumos) {
-            System.out.println("Insumo: "+i.getNomeInsumo() + " " + i.getQuantInsumo() + " " + i.getPrecoInsumo());
+            System.out.println("Insumo: " + i.getNomeInsumo() + " " + i.getQuantInsumo() + " " + i.getPrecoInsumo());
         }
-            System.out.println("\n");
+        System.out.println("\n");
         List<GastoExtra> listaGastoExtras = cliente.getGastoExtras(
                 new GenericType<List<GastoExtra>>() {
         });
         for (GastoExtra g : listaGastoExtras) {
-            System.out.println("Gasto Extra: "+g.getNomeGastoExtra() + " " + g.getQuantGastoExtra() + " " + g.getPrecoGastoExtra());
+            System.out.println("Gasto Extra: " + g.getNomeGastoExtra() + " " + g.getQuantGastoExtra() + " " + g.getPrecoGastoExtra());
         }
 
     }

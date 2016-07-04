@@ -142,39 +142,35 @@ public class InsumoDAO {
     
     
     }
-//    public Usuario buscar(Usuario usuario)
-//    {
-//         String sql = "SELECT * FROM usuario where login=?";
-//        Usuario retorno = null;
-//        
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//           
-//            pst.setString(1, usuario.getLogin());
-//            ResultSet res = pst.executeQuery();
-//            
-//            if(res.next())
-//            {
-//                retorno = new Usuario();
-//                retorno.setLogin(res.getString("login"));
-//                retorno.setSenha(res.getString("senha"));
-//                retorno.setEmail(res.getString("email"));
-//                retorno.setPerfil(res.getString("perfil"));
-//                
-//                
-//            }
-//               
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            
-//        }
-//        
-//        return retorno;
-//    
-//    
-//    }
+ public List<Insumo> buscar(Insumo insumo) {
+        String sql = "SELECT * FROM insumo where nomeinsumo=?";
+        List<Insumo> retorno = new ArrayList<Insumo>();
+
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+
+            pst.setString(1, insumo.getNomeInsumo());
+            ResultSet res = pst.executeQuery();
+
+           while(res.next())
+            {
+                Insumo item = new Insumo();
+                item.setId(res.getLong("id"));
+                item.setNomeInsumo(res.getString("nomeinsumo"));
+                item.setQuantInsumo(res.getInt("quantinsumo"));
+                item.setPrecoInsumo(res.getDouble("precoinsumo"));
+                
+                retorno.add(item);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+        return retorno;
+
+    }
 
 
 }

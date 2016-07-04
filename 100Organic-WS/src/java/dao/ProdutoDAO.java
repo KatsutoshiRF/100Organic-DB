@@ -59,56 +59,6 @@ public class ProdutoDAO {
         return retorno;
     
     }
-//    public boolean atualizar(Usuario usuario)
-//    {
-//        String sql = "UPDATE usuario set senha=?,perfil=?,email=? where login=?";
-//        Boolean retorno = false;
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//          
-//            pst.setString(1, usuario.getSenha());
-//            pst.setString(2, usuario.getPerfil());
-//            pst.setString(3, usuario.getEmail());
-//            pst.setString(4, usuario.getLogin());
-//            if(pst.executeUpdate()>0)
-//            {
-//                retorno = true;
-//            }
-//                
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            retorno = false;
-//        }
-//        
-//        return retorno;
-//    
-//    }
-//    public boolean excluir(Usuario usuario)
-//    {
-//        String sql = "DELETE FROM usuario where login=?";
-//        Boolean retorno = false;
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//          
-//           
-//            pst.setString(1, usuario.getLogin());
-//            if(pst.executeUpdate()>0)
-//            {
-//                retorno = true;
-//            }
-//                
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            retorno = false;
-//        }
-//        
-//        return retorno;
-//    
-//    }
     
     public List<Produto> listar()
     {
@@ -144,39 +94,36 @@ public class ProdutoDAO {
     
     
     }
-//    public Usuario buscar(Usuario usuario)
-//    {
-//         String sql = "SELECT * FROM usuario where login=?";
-//        Usuario retorno = null;
-//        
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//           
-//            pst.setString(1, usuario.getLogin());
-//            ResultSet res = pst.executeQuery();
-//            
-//            if(res.next())
-//            {
-//                retorno = new Usuario();
-//                retorno.setLogin(res.getString("login"));
-//                retorno.setSenha(res.getString("senha"));
-//                retorno.setEmail(res.getString("email"));
-//                retorno.setPerfil(res.getString("perfil"));
-//                
-//                
-//            }
-//               
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            
-//        }
-//        
-//        return retorno;
-//    
-//    
-//    }
+ public List<Produto> buscar(Produto produto) {
+        String sql = "SELECT * FROM produto where nomeproduto=?";
+        List<Produto> retorno = new ArrayList<Produto>();
+
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+
+            pst.setString(1, produto.getNomeProduto());
+            ResultSet res = pst.executeQuery();
+
+           while (res.next()) {
+                Produto item = new Produto();
+                item.setId(res.getLong("id"));
+                item.setNomeProduto(res.getString("nomeproduto"));
+                item.setQualidadeProduto(res.getString("qualidadeproduto"));
+                item.setQuantidadeProduto(res.getInt("quantidadeproduto"));
+                item.setMedidaProduto(res.getString("medidaproduto"));
+                item.setPrecoProduto(res.getDouble("precoproduto"));
+
+                retorno.add(item);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+        return retorno;
+
+    }
 
 
 }

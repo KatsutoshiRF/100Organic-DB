@@ -58,57 +58,6 @@ public class GastoExtraDAO {
         return retorno;
     
     }
-//    public boolean atualizar(Usuario usuario)
-//    {
-//        String sql = "UPDATE usuario set senha=?,perfil=?,email=? where login=?";
-//        Boolean retorno = false;
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//          
-//            pst.setString(1, usuario.getSenha());
-//            pst.setString(2, usuario.getPerfil());
-//            pst.setString(3, usuario.getEmail());
-//            pst.setString(4, usuario.getLogin());
-//            if(pst.executeUpdate()>0)
-//            {
-//                retorno = true;
-//            }
-//                
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            retorno = false;
-//        }
-//        
-//        return retorno;
-//    
-//    }
-//    public boolean excluir(Usuario usuario)
-//    {
-//        String sql = "DELETE FROM usuario where login=?";
-//        Boolean retorno = false;
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//          
-//           
-//            pst.setString(1, usuario.getLogin());
-//            if(pst.executeUpdate()>0)
-//            {
-//                retorno = true;
-//            }
-//                
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            retorno = false;
-//        }
-//        
-//        return retorno;
-//    
-//    }
-    
     public List<GastoExtra> listar()
     {
          String sql = "SELECT * FROM gastoextra";
@@ -140,40 +89,34 @@ public class GastoExtraDAO {
         return retorno;
     
     
-    }
-//    public Usuario buscar(Usuario usuario)
-//    {
-//         String sql = "SELECT * FROM usuario where login=?";
-//        Usuario retorno = null;
-//        
-//        PreparedStatement pst = Conexao.getPreparedStatement(sql);
-//        try {
-//           
-//            pst.setString(1, usuario.getLogin());
-//            ResultSet res = pst.executeQuery();
-//            
-//            if(res.next())
-//            {
-//                retorno = new Usuario();
-//                retorno.setLogin(res.getString("login"));
-//                retorno.setSenha(res.getString("senha"));
-//                retorno.setEmail(res.getString("email"));
-//                retorno.setPerfil(res.getString("perfil"));
-//                
-//                
-//            }
-//               
-//            
-//            
-//        } catch (SQLException ex) {
-//            Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
-//            
-//        }
-//        
-//        return retorno;
-//    
-//    
-//    }
+    }public List<GastoExtra> buscar(GastoExtra gastoextra) {
+        String sql = "SELECT * FROM insumo where gastoextra=?";
+        List<GastoExtra> retorno = new ArrayList<GastoExtra>();
 
+        PreparedStatement pst = Conexao.getPreparedStatement(sql);
+        try {
+
+            pst.setString(1, gastoextra.getNomeGastoExtra());
+            ResultSet res = pst.executeQuery();
+
+           while(res.next())
+            {
+                GastoExtra item = new GastoExtra();
+                item.setId(res.getLong("id"));
+                item.setNomeGastoExtra(res.getString("nomegastoextra"));
+                item.setQuantGastoExtra(res.getInt("quantgastoextra"));
+                item.setPrecoGastoExtra(res.getDouble("precogastoextra"));
+                
+                retorno.add(item);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        
+        return retorno;
+
+    }
 
 }

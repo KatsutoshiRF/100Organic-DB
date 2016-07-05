@@ -48,7 +48,8 @@ public class ClienteOrganic {
         resource = resource.path("Produto/get");
         return resource.request(MediaType.APPLICATION_JSON).get(responseType);
     }
-        public <T> T buscarProduto(GenericType<T> responseType) throws ClientErrorException {
+
+    public <T> T buscarProduto(GenericType<T> responseType) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path("Produto/get/{nomeproduto}");
         return resource.request(MediaType.APPLICATION_JSON).get(responseType);
@@ -70,10 +71,27 @@ public class ClienteOrganic {
 //        resource = resource.path("Insumo/get");
 //        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(String.class);
 //    }
-    
     public <T> T getInsumos(GenericType<T> responseType) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path("Insumo/get");
+        return resource.request(MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    public <T> T getRendimentoTotal(GenericType<T> responseType) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("Rendimento/get");
+        return resource.request(MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    public <T> T getCustoTotal(GenericType<T> responseType) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("Custo/get");
+        return resource.request(MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    public <T> T getReceita(GenericType<T> responseType) throws ClientErrorException {
+        WebTarget resource = webTarget;
+        resource = resource.path("Receita/get");
         return resource.request(MediaType.APPLICATION_JSON).get(responseType);
     }
 

@@ -5,22 +5,12 @@
  */
 package model;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
 /**
  *
  * @author 631410038
  */
-@Entity
-public class Insumo implements Serializable {
+public class Insumo {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String nomeInsumo;
@@ -50,11 +40,11 @@ public class Insumo implements Serializable {
     public void setPrecoInsumo(double precoInsumo) {
         this.precoInsumo = precoInsumo;
     }
-    
+
     public Long getId() {
         return id;
     }
-    
+
     public void setId(Long id) {
         this.id = id;
     }
@@ -83,5 +73,5 @@ public class Insumo implements Serializable {
     public String toString() {
         return "model.Insumo[ id=" + id + " ]";
     }
-    
+
 }

@@ -9,17 +9,16 @@ package model;
  *
  * @author 631410038
  */
-
 public class Produto {
 
     private Long id;
-    
+
     private String nomeProduto;
     private String qualidadeProduto;
     private int quantidadeProduto;
     private double precoProduto;
     private String medidaProduto;
-    
+
     public String getNomeProduto() {
         return nomeProduto;
     }
@@ -59,7 +58,7 @@ public class Produto {
     public void setMedidaProduto(String medidaProduto) {
         this.medidaProduto = medidaProduto;
     }
-    
+
     public Long getId() {
         return id;
     }
@@ -92,5 +91,5 @@ public class Produto {
     public String toString() {
         return "model.Produto[ id=" + id + " ]";
     }
-    
+
 }
